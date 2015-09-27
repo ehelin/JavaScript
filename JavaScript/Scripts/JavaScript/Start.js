@@ -1,3 +1,8 @@
 ﻿function Initialize() {
-    alert('hi');
-} 
+    PolishReverseNotation();
+}
+
+function PolishReverseNotation() {
+    RunPolishReverseNotation();
+}
+
