@@ -1,8 +1,8 @@
 ﻿function Initialize() {
-    PolishReverseNotation();
+    RunExamples();
 }
 
-function PolishReverseNotation() {
+function RunExamples() {
     RunPolishReverseNotation();
 }
 
