@@ -1,10 +1,5 @@
 ﻿
 function RunPolishReverseNotation() {
-    //TODO - display results
-    //document.body.appendChild(document.createElement('div'));
-    //var contentPane = document.getElementById("div");
-    //contentPane.appendChild('hi there');
-    
     RunSingleOperatorTests();
     //RunMultipleOperatorTest();
 }
@@ -21,23 +16,27 @@ function RunMultipleOperatorTest() {
 var Stack = [];
 
 function RunSingleOperatorTests() {
-    var result = RunSingleOperatorTest('2 4 *', false);
-    result = RunSingleOperatorTest('2 4 *', true);
-    result = RunSingleOperatorTest('10 3 /', false);
-    result = RunSingleOperatorTest('10 3 /', true);
-    result = RunSingleOperatorTest('7 3 +', false);
-    result = RunSingleOperatorTest('7 3 +', true);
-    result = RunSingleOperatorTest('45 3 -', false);
-    result = RunSingleOperatorTest('45 3 -', true);
-    result = RunSingleOperatorTest('4 3 %', false);
-    result = RunSingleOperatorTest('4 3 %', true);
-    result = RunSingleOperatorTest('17 4 &', false);
-    result = RunSingleOperatorTest('17 4 &', true);
-    result = RunSingleOperatorTest('511 56 ^', false);
-    result = RunSingleOperatorTest('511 56 ^', true);
-    result = RunSingleOperatorTest('42 21 |', false);
-    result = RunSingleOperatorTest('42 21 |', true);
-}function RunSingleOperatorTest(expression, useEval) {
+    var asserts = new Asserts();
+
+    asserts.areEqual(RunSingleOperatorTest('2 4 *', false), 8);
+    asserts.areEqual(RunSingleOperatorTest('2 4 *', true), 8);
+    asserts.areEqual(RunSingleOperatorTest('10 3 /', false), 3);
+    asserts.areEqual(RunSingleOperatorTest('10 3 /', true), 3);
+    asserts.areEqual(RunSingleOperatorTest('7 3 +', false), 10);
+    asserts.areEqual(RunSingleOperatorTest('7 3 +', true), 10);
+    asserts.areEqual(RunSingleOperatorTest('45 3 -', false), 42);
+    asserts.areEqual(RunSingleOperatorTest('45 3 -', true), 42);
+    asserts.areEqual(RunSingleOperatorTest('4 3 %', false), 1);
+    asserts.areEqual(RunSingleOperatorTest('4 3 %', true), 1);
+    asserts.areEqual(RunSingleOperatorTest('17 4 &', false), 0);
+    asserts.areEqual(RunSingleOperatorTest('17 4 &', true), 0);
+    asserts.areEqual(RunSingleOperatorTest('511 56 ^', false), 455);
+    asserts.areEqual(RunSingleOperatorTest('511 56 ^', true), 455);
+    asserts.areEqual(RunSingleOperatorTest('42 21 |', false), 63);
+    asserts.areEqual(RunSingleOperatorTest('42 21 |', true), 63);
+
+}
+function RunSingleOperatorTest(expression, useEval) {
     var result = 0;
 
     PopulateStack(expression, useEval);
