@@ -1,16 +1,87 @@
 ﻿
 function RunPolishReverseNotation() {
-    RunSingleOperatorTests();
-    //RunMultipleOperatorTest();
+    //RunSingleOperatorTests();
+    RunMultipleOperatorTests();
 }
 
 //Multiple operator/stack using out of the box Javascript array =========================================
 var MultipleStack = [];
 
-function RunMultipleOperatorTest() {
-    //var result = RunMultipleOperatorTest('5 * 6 – 3 * 2 * 3', false, true);
-    //result = RunMultipleOperatorTest('5 6 * 3 2 * 3 * -', true, false);
+function RunMultipleOperatorTests() {
+    var result = RunMultipleOperatorTest('5 6 * 3 2 *', false);
+    result = RunMultipleOperatorTest('5 6 * 3 2 * 3 * -', true);
 }
+
+function RunMultipleOperatorTest(expression, useEval) {
+    PopulateMultipleStack(expression, useEval);
+    var cont = true;
+
+    while (cont) 
+    {
+        var op1 = null,op2 = null, operator = null, result = 0;
+
+        while (operator == null || op1 == null || op2 == null)
+        {
+            var val = MultipleStack.pop();
+            
+            if (isNaN(val))
+                operator = val;
+            else if (op1 == null)
+                op1 = val;
+            else if (op2 == null)
+                op2 = val;
+        }
+
+        result = GetValue(op1, op2, operator, useEval);
+
+        result = parseInt(result);
+
+        ctr++;
+    }
+
+    Stack.push(result);
+
+    var calculatedValue = Stack.pop();
+
+    return calculatedValue;
+}
+function GetValue(op1, op2, operator, useEval) {
+    if (useEval != null && useEval != undefined && useEval == true)
+        result = eval(op1 + operator + op2);
+    else if (operator == "*")
+        result = op1 * op2;
+    else if (operator == "+")
+        result = op1 + op2;
+    else if (operator == "-")
+        result = op1 - op2;
+    else if (operator == "/")
+        result = op1 / op2;
+    else if (operator == "%")
+        result = op1 % op2;
+    else if (operator == "&")
+        result = op1 & op2;
+    else if (operator == "^")
+        result = op1 ^ op2;
+    else if (operator == "|")
+        result = op1 | op2;
+    else
+        alert('unknown operator');
+
+    return result;
+}
+function PopulateMultipleStack(expression, useEval) {
+    var expressionArr = expression.split(' ');
+
+    for (var i = 0; i < expressionArr.length; i++) {
+        var value = expressionArr[i];
+
+        if (!useEval && !isNaN(value))
+            value = parseInt(expressionArr[i]);
+
+        MultipleStack.push(value);
+    }
+}
+
 
 //Single operator/stack using out of the box Javascript array =========================================
 var Stack = [];
@@ -36,6 +107,7 @@ function RunSingleOperatorTests() {
     asserts.areEqual(RunSingleOperatorTest('42 21 |', true), 63);
 
 }
+
 function RunSingleOperatorTest(expression, useEval) {
     var result = 0;
 
