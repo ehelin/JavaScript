@@ -1,7 +1,10 @@
 ﻿var Stack = [];
 
 function RunPolishReverseNotation() {
+    Display('Starting Run Polish Reverse Notation!');
+    Display(' ');
     RunTests();
+    Display('Polish Reverse Notation Complete!');
 }
 function RunTests() {
     var asserts = new Asserts();
@@ -26,6 +29,14 @@ function RunTests() {
     asserts.areEqual(RunTest('42 21 |', true), 63);
 }
 function RunTest(expression, useEval) {
+    Display('Running test -------------------------------------------------------------');
+    Display('Expression: ' + expression);
+
+    if (useEval == true)
+        Display('Using Eval() function');
+    else
+        Display('Using Expression tree');
+
     var expressionArr = expression.split(' ');
     var cont = true;
     var op1 = null, op2 = null, operator = null, result = 0;

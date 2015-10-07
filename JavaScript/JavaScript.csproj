@@ -110,9 +110,11 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\Assert.js" />
-    <Content Include="Scripts\JavaScript\ReversePolishNotation.js" />
+    <Content Include="Scripts\JavaScript\Assert.js" />
+    <Content Include="Scripts\JavaScript\Exercises\RandomSoftwareExercises.js" />
+    <Content Include="Scripts\JavaScript\Exercises\ReversePolishNotation.js" />
     <Content Include="Scripts\JavaScript\Start.js" />
+    <Content Include="Scripts\JavaScript\Utilties.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
