@@ -5,6 +5,7 @@
 }
 
 function RunExamples() {
-    RunPolishReverseNotation();
+    //RunPolishReverseNotation();
+    WeighingIdenticalBalls();
 }
 
