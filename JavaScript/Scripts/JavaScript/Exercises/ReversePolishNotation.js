@@ -3,10 +3,10 @@
 function RunPolishReverseNotation() {
     Display('Starting Run Polish Reverse Notation!');
     Display(' ');
-    RunTests();
+    RunRunPolishReverseNotationTests();
     Display('Polish Reverse Notation Complete!');
 }
-function RunTests() {
+function RunRunPolishReverseNotationTests() {
     var asserts = new Asserts();
 
     asserts.areEqual(RunTest('5 6 * 3 2 * 3 * -', false), 12);
