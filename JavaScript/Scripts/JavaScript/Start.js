@@ -7,5 +7,6 @@
 function RunExamples() {
     RunPolishReverseNotation();
     WeighingIdenticalBalls();
+    LightSwitch();
 }
 
