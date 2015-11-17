@@ -11,12 +11,43 @@ function LightSwitch() {
 
     RunLightSwitchTest();
 }
-//var Balls = [];
+var LightSwitches = [];
 
 function RunLightSwitch() {
-    //PopulateBalls();
-    //FindDifferentWeightV1();  //This was my original one
-    //FindDifferentWeightV2();  //This was after reading an answer online
+    PopulateSwitches();
+    FindSwitchV1();  //This was my original one
+    FindSwitchV2();  //This was after reading an answer online...not even close(http://www.braingle.com/brainteasers/teaser.php?op=2&id=363&comm=0)
+}
+
+function FindSwitchV1() {
+    Display("Turning on switch 1 and 2");
+
+    if (LightSwitches[0].isSwitch == true || LightSwitches[1] == true)
+        Display("Answer is switch 1 or 2");
+    else
+        Display("Answer is switch 3");
+}
+
+function FindSwitchV2() {
+   //TODO - Code answer
+}
+
+function PopulateSwitches() {
+    Display('Populating Light Switches...');
+
+    var lightSwitch = new LightSwitch('LightSwitch 1', false);
+    LightSwitches[0] = lightSwitch;
+
+    lightSwitch = new LightSwitch('LightSwitch 2', true);
+    LightSwitches[1] = lightSwitch;
+
+    lightSwitch = new LightSwitch('LightSwitch 1', false);
+    LightSwitches[2] = lightSwitch;
+}
+
+function LightSwitch(pName, isSwitch) {
+    this.name = pName;
+    this.isSwitch = isSwitch;
 }
 
 //function FindDifferentWeightV2() {
@@ -75,23 +106,4 @@ function RunLightSwitch() {
 //                + ctr);
 //    else
 //        Display('Not Found!');
-//}
-
-//function PopulateBalls() {
-//    Display('Populating Ball array...');
-//    var ball = null;
-
-//    for (var i = 0; i < 7; i++) {
-//        ball = new Ball('Ball ' + (i+1).toString(), 10);
-//        Balls[i] = ball;
-//    }
-
-//    ball = new Ball('Ball 8', 11);
-//    ball.weight = 11;
-//    Balls[7] = ball;
-//}
-
-//function Ball(pName, pWeight) {
-//    this.name = pName;
-//    this.weight = pWeight;
 //}
